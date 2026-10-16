@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Hot Take</title>
+<meta name="description" content="A five-minute timer, checklist and report for a quick, recorded expert website review. Expert review, not user data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=Libre+Franklin:wght@400;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%2314171A%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%279%27 fill=%27none%27 stroke=%27%23F3F4F2%27 stroke-width=%273%27/%3E%3Cpath d=%27M16 10v6l4 2%27 stroke=%27%23F3F4F2%27 stroke-width=%273%27 fill=%27none%27/%3E%3C/svg%3E">
+</head>
+<body>
+<div class="wrap">
+  <form class="site" id="siteform" novalidate hidden>
+    <span id="sitename" hidden>this site</span>
+    <label class="label" for="url">Site to review</label>
+    <div class="site-row">
+      <input id="url" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Paste a URL, e.g. example.com">
+      <a id="open" class="btn" target="_blank" rel="noopener noreferrer" aria-disabled="true" tabindex="-1">Open site</a>
+    </div>
+    <p class="site-note" id="sitenote">Click to open in a new tab, or right-click and choose “Open link in split view”.</p>
+  </form>
+
+  <header class="top" id="head">
+    <div class="meta">
+      <span class="label">The Hot Take</span>
+      <span class="meta-right">
+        <label class="switch label"><input type="checkbox" id="auto" checked><span>Auto-scroll</span></label>
+        <span class="label" id="status" data-s="idle">Ready</span>
+      </span>
+    </div>
+    <div class="row">
+      <div class="clock" role="timer" aria-live="off"><span id="elapsed">5:00</span></div>
+    </div>
+    <div class="bar" aria-hidden="true">
+      <div class="seg seg-60"><div class="track"><i class="fill"></i></div><span>5:00</span></div>
+      <div class="seg seg-240"><div class="track"><i class="fill"></i></div><span>4:00</span></div>
+    </div>
+  </header>
+
+  
+
+  <div class="ready" id="ready"><h2>Press Start</h2>
+    <div class="controls">
+      <button type="button" class="next" id="next" hidden>Next</button>
+      <button type="button" class="next" id="next2" hidden>Next</button>
+      <button type="button" id="primary">Start</button>
+      <button type="button" id="cancel" class="ghost" disabled>Cancel</button>
+    </div>
+  </div>
+
+  <ol class="steps">
+    <li class="step" data-state="next">
+      <p class="cue"></p>
+      <h2 class="kicker">5-second test</h2>
+      <p class="prompt">“What is this site about?”</p>
+      <p class="phase phase-look">First load, no scroll. Just look.</p>
+      <p class="phase phase-say">Say what you saw.</p>
+    </li>
+    <li class="step" data-state="upcoming">
+      <p class="cue"></p>
+      <h2 class="kicker">Task walkthrough · <span id="count">1 of 6</span></h2>
+      <p class="prompt">“Does it have what I need?”</p>
+      <ul class="items">
+        <li>First click obvious?</li>
+        <li>Labels say where they lead?</li>
+        <li>Dead ends?</li>
+        <li>How does it work?</li>
+        <li>What does it mean?</li>
+        <li>Is it expensive?</li>
+      </ul>
+    </li>
+  </ol>
+
+  <div class="recap" id="recap" hidden>
+    <p class="cue" id="cue-done"></p>
+    <button type="button" id="recap-open" class="recap-btn">Open Top-3 Summary</button>
+    <div class="top3" id="top3" hidden>
+      <h2>The <span class="nowrap">“Top-3”</span> Summary</h2>
+      <p class="note note-lead"><strong>Top suggestion:</strong> get 7 other people to review this site and share feedback. Look for patterns across reviewers.</p>
+      <p class="note">This is an early impression, not data. On its own it carries little weight.</p>
+      <label class="field"><span>Site reviewed</span><input id="site-name" type="text" autocomplete="off" placeholder="e.g., Aesthetary.com"></label>
+      <section class="finding" aria-labelledby="f1">
+        <h3 id="f1">Finding 1</h3>
+        <fieldset class="sev"><legend>Severity</legend><div class="sev-opts"><label class="sev-opt"><input type="radio" name="f1-sev" value="5"><span><b>5</b> Critical</span></label><label class="sev-opt"><input type="radio" name="f1-sev" value="4"><span><b>4</b> High Friction</span></label><label class="sev-opt"><input type="radio" name="f1-sev" value="3"><span><b>3</b> Deficit</span></label><label class="sev-opt"><input type="radio" name="f1-sev" value="2"><span><b>2</b> Minor</span></label><label class="sev-opt"><input type="radio" name="f1-sev" value="1"><span><b>1</b> Other</span></label></div></fieldset>
+        <label class="field"><span>Issue</span><textarea id="f1-issue" rows="2" placeholder="What blocks or confuses a first-time visitor? (e.g., can’t tell what it sells)"></textarea></label>
+        <label class="field"><span>Impact</span><textarea id="f1-impact" rows="2" placeholder="Why it may matter to a first-time visitor. My hypothesis, not a measurement."></textarea></label>
+        <label class="field"><span>Recommendation</span><textarea id="f1-rec" rows="2" placeholder="What to change, or what to check first."></textarea></label>
+      </section>
+      <section class="finding" aria-labelledby="f2">
+        <h3 id="f2">Finding 2</h3>
+        <fieldset class="sev"><legend>Severity</legend><div class="sev-opts"><label class="sev-opt"><input type="radio" name="f2-sev" value="5"><span><b>5</b> Critical</span></label><label class="sev-opt"><input type="radio" name="f2-sev" value="4"><span><b>4</b> High Friction</span></label><label class="sev-opt"><input type="radio" name="f2-sev" value="3"><span><b>3</b> Deficit</span></label><label class="sev-opt"><input type="radio" name="f2-sev" value="2"><span><b>2</b> Minor</span></label><label class="sev-opt"><input type="radio" name="f2-sev" value="1"><span><b>1</b> Other</span></label></div></fieldset>
+        <label class="field"><span>Issue</span><textarea id="f2-issue" rows="2" placeholder="What slows or confuses a visitor? (e.g., a menu label that doesn’t say where it leads)"></textarea></label>
+        <label class="field"><span>Impact</span><textarea id="f2-impact" rows="2" placeholder="Why it may matter to a first-time visitor. My hypothesis, not a measurement."></textarea></label>
+        <label class="field"><span>Recommendation</span><textarea id="f2-rec" rows="2" placeholder="What to change, or what to check first."></textarea></label>
+      </section>
+      <section class="finding" aria-labelledby="f3">
+        <h3 id="f3">Finding 3</h3>
+        <fieldset class="sev"><legend>Severity</legend><div class="sev-opts"><label class="sev-opt"><input type="radio" name="f3-sev" value="5"><span><b>5</b> Critical</span></label><label class="sev-opt"><input type="radio" name="f3-sev" value="4"><span><b>4</b> High Friction</span></label><label class="sev-opt"><input type="radio" name="f3-sev" value="3"><span><b>3</b> Deficit</span></label><label class="sev-opt"><input type="radio" name="f3-sev" value="2"><span><b>2</b> Minor</span></label><label class="sev-opt"><input type="radio" name="f3-sev" value="1"><span><b>1</b> Other</span></label></div></fieldset>
+        <label class="field"><span>Issue</span><textarea id="f3-issue" rows="2" placeholder="What looks or works worse for a visitor? (e.g., a stretched hero image on a large screen)"></textarea></label>
+        <label class="field"><span>Impact</span><textarea id="f3-impact" rows="2" placeholder="Why it may matter to a first-time visitor. My hypothesis, not a measurement."></textarea></label>
+        <label class="field"><span>Recommendation</span><textarea id="f3-rec" rows="2" placeholder="What to change, or what to check first."></textarea></label>
+      </section>
+      <section class="quotes" aria-labelledby="qh">
+        <h3 id="qh">Verbatim quotes <span>(optional)</span></h3>
+        <label class="check"><input type="checkbox" id="q-include"><span>Include verbatim quotes in the report</span></label>
+        <div id="q-body" hidden>
+          <label class="field"><span>Transcript</span><textarea id="q-transcript" rows="6" placeholder="Drop a .vtt, .srt or .txt file here, or paste the transcript."></textarea></label>
+          <div class="row-actions"><label class="file-btn"><input type="file" id="q-file" accept=".vtt,.srt,.txt,text/vtt,text/plain"><span>Choose transcript file</span></label></div>
+          <p class="note">Find quotes runs on this device and sends nothing anywhere. It compares your findings with each sentence in the transcript by shared wording, adds weight to reaction phrases such as “can’t tell” or “confusing”, and returns exact passages. Higher severity returns more passages. It matches words, not meaning, so review every result.</p>
+          <div class="row-actions"><button type="button" id="q-find">Find quotes</button></div>
+          <p class="note" id="q-status" role="status"></p>
+          <div id="q-list"></div>
+        </div>
+      </section>
+
+      <div class="export">
+        <div class="row-actions">
+          <button type="button" id="export">Download report (.md)</button>
+          <button type="button" id="clear" class="ghost">Clear form</button>
+        </div>
+        <p class="note" id="export-note" role="status"></p>
+        <textarea id="export-fallback" class="fallback" rows="8" readonly hidden aria-label="Report markdown"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="sr-only" id="live" aria-live="polite"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

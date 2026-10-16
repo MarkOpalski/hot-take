@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+Thumbs.db
+# Editors
+.vscode/
+.idea/
+# Env and secrets (none are used; guard against accidents)
+.env
+.env.*
+*.pem
+*.key
+# Netlify
+.netlify/
+# Node (not used)
+node_modules/
+# Recordings and reports stay out of the repo
+*.mp4
+*.mov
+*.vtt
+*.srt
+hot-take-review-*.md
