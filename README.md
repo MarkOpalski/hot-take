@@ -62,7 +62,8 @@ Open `http://localhost:8080`.
 
 ## License
 
-Not yet chosen.
+- Code: MIT, see `LICENSE`
+- Fonts: SIL Open Font License 1.1, see `fonts/LICENSES.md`
 
 ## Author
 
