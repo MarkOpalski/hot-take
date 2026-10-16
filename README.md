@@ -34,7 +34,7 @@ Open `http://localhost:8080`.
 - Everything stays in your browser
 - Your draft is saved in `localStorage` (key `hottake-draft`). Use "Clear" to remove it
 - Transcripts are read in the page and never uploaded
-- The only external request is the Google Fonts stylesheet
+- No external requests. Fonts are self-hosted
 
 ## Limits
 
@@ -53,6 +53,7 @@ Open `http://localhost:8080`.
 - `style.css` styles
 - `app.js` timer, report and quote finder
 - `netlify.toml` static deploy settings and security headers
+- `fonts/` Libre Franklin, Libre Baskerville, Roboto Mono (OFL 1.1, see `fonts/LICENSES.md`)
 
 ## Deploy
 
