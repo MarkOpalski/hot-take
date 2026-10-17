@@ -28,7 +28,9 @@ Only the latest commit on `main` and the live site are supported. There are no v
 ## How the project is built to limit risk
 
 - A single static page. No server, no database, no accounts.
-- No third-party code at run time. There are no npm or other package dependencies.
+- No third-party code at run time. There are no npm or other package dependencies. The only dependency is Playwright, used by the test, and it is pinned in `tests/requirements.txt`.
+- Dependabot watches the pinned test dependency and the pre-commit hook versions, with a 7-day wait on new releases.
+- Secret scanning with push protection is enabled on GitHub, and an optional local gitleaks hook is provided in `.pre-commit-config.yaml`.
 - No requests to other sites. Fonts are self-hosted.
 - A strict Content Security Policy (`default-src 'none'`, scripts, styles and fonts from the same site only) and related headers, set in `netlify.toml`.
 - Your draft is stored only in your own browser, in `localStorage` under the key `hottake-draft`. Nothing is sent anywhere.

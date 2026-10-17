@@ -134,7 +134,7 @@ To deploy your own copy:
 To run the smoke test, which checks the timer, the report export and that the page makes no outside requests:
 
 ```
-pip install playwright
+pip install -r tests/requirements.txt
 playwright install chromium
 python3 tests/smoke_test.py
 ```
@@ -149,8 +149,11 @@ python3 tests/smoke_test.py
 | `fonts/` | Self-hosted fonts and their licenses |
 | `netlify.toml` | Static deploy settings and security headers |
 | `tests/smoke_test.py` | End-to-end smoke test |
+| `tests/requirements.txt` | Pinned test dependency (Playwright) |
+| `.pre-commit-config.yaml` | Optional local secret and junk checks |
+| `.gitignore` | Keeps system files, secrets, recordings and transcripts out of the repo |
 | `docs/` | Screenshots used in this README |
-| `.github/` | Issue forms, pull request template and code owners |
+| `.github/` | Issue forms, pull request template, code owners and Dependabot settings |
 
 ## Contributing
 

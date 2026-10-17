@@ -1,23 +1,119 @@
-# OS
+# ---------------------------------------------------------------------------
+# What stays out of this repository.
+# .gitignore only affects files Git is not already tracking. If a file was
+# committed earlier, remove it with `git rm --cached <file>` first.
+# ---------------------------------------------------------------------------
+
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.apdisk
+.com.apple.timemachine.donotpresent
+*.icloud
+Network Trash Folder
+Temporary Items
+
+# Windows and Linux
 Thumbs.db
-# Editors
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.directory
+.fuse_hidden*
+.Trash-*
+
+# Editors and IDEs
 .vscode/
 .idea/
-# Env and secrets (none are used; guard against accidents)
+*.code-workspace
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.project
+.classpath
+
+# Secrets and credentials (this project uses none; keep it that way)
 .env
 .env.*
+!.env.example
 *.pem
 *.key
-# Netlify
+*.p12
+*.pfx
+*.keystore
+id_rsa*
+id_ed25519*
+*.token
+*.secret
+secrets.*
+credentials*.json
+service-account*.json
+.npmrc
+.pypirc
+.netrc
+.aws/
+.ssh/
+.gnupg/
+
+# Netlify local state and deploy bundles
 .netlify/
-# Node (not used)
+deploy-*.zip
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Python and test output
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Node (not used by this project)
 node_modules/
-# Recordings and reports stay out of the repo
+npm-debug.log*
+yarn-error.log*
+
+# Logs, temp and backup files
+*.log
+*.tmp
+*.bak
+*.orig
+*.rej
+
+# Review material stays on the reviewer's machine: recordings, transcripts, reports
 *.mp4
 *.mov
+*.m4v
+*.mkv
+*.webm
+*.wav
+*.mp3
+*.m4a
+*.aac
 *.vtt
 *.srt
 hot-take-review-*.md
-# Netlify deploy bundles
-deploy-*.zip
+recordings/
+transcripts/

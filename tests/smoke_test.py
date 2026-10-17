@@ -4,7 +4,7 @@ Serves the repository with the same security headers as netlify.toml, opens the
 page in headless Chromium and checks the main flow. Exits non-zero on failure.
 
 Setup:
-    pip install playwright
+    pip install -r tests/requirements.txt
     playwright install chromium
 Run from the repository root:
     python3 tests/smoke_test.py

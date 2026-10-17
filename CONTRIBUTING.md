@@ -48,7 +48,7 @@ Open `http://localhost:8080`.
 The smoke test runs the page in a headless browser under the same security headers as the live site. It checks that the timer runs, the report downloads, quotes can be found, the page makes no outside requests and the browser reports no errors.
 
 ```
-pip install playwright
+pip install -r tests/requirements.txt
 playwright install chromium
 python3 tests/smoke_test.py
 ```
@@ -60,6 +60,18 @@ Also check by hand:
 - Keyboard only: you can start, advance, finish and download without a mouse
 - A phone-width window and a wide window
 - Contrast of any colour you changed
+
+## Keep secrets and junk out
+
+- `.gitignore` already excludes system files, credentials, recordings and transcripts. Do not force-add them.
+- Optional but encouraged: install the local checks once, and they run on every commit.
+
+```
+pip install pre-commit
+pre-commit install
+```
+
+- Never commit a real client's site content, a real review or a recording. Use obviously fake data in examples and screenshots.
 
 ## Pull requests
 
