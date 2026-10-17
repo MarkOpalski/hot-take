@@ -1,0 +1,26 @@
+version: 2
+updates:
+  # Test dependency (Playwright), pinned in tests/requirements.txt
+  - package-ecosystem: "pip"
+    directory: "/tests"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    cooldown:
+      default-days: 7
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "deps"
+  # Hook versions in .pre-commit-config.yaml (gitleaks and basic checks)
+  - package-ecosystem: "pre-commit"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    cooldown:
+      default-days: 7
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "deps"
+  # When a GitHub Actions workflow is added, add a "github-actions" entry here
+  # and pin each action to a full commit SHA.

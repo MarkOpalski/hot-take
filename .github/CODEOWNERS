@@ -1,0 +1,8 @@
+# Every change needs review from the maintainer.
+*                @MarkOpalski
+# Security-sensitive files, listed explicitly so they are never missed.
+/netlify.toml    @MarkOpalski
+/SECURITY.md     @MarkOpalski
+/LICENSE         @MarkOpalski
+/fonts/          @MarkOpalski
+/.github/        @MarkOpalski

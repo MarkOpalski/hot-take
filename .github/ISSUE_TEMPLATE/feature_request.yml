@@ -1,0 +1,38 @@
+name: Suggestion
+description: Suggest a change to a prompt, a check or a feature
+title: "[Suggestion] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The Hot Take stays small on purpose. See CONTRIBUTING.md for the project rules: no build step, no dependencies, no outside requests and no tracking.
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem you want solved
+      description: Describe what is hard or missing during a review. Start with the problem, not the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Other options you considered
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Project rules
+      description: Please confirm your idea fits them.
+      options:
+        - label: It needs no build step, no dependencies and no outside requests
+          required: true
+        - label: It keeps all data on the reviewer's device
+          required: true
+        - label: It keeps the report honest about being an early impression
+          required: true
