@@ -1,2 +1,2 @@
 # Test dependencies only. The site itself has no dependencies.
-playwright==1.63.0
+playwright==1.64.0
